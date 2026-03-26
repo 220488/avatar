@@ -2,7 +2,7 @@
 
 import { useRef, useState, useCallback, useEffect } from "react";
 import { useAsciiArt } from "@/hooks/useAsciiArt";
-import AsciiTitle from "@/components/AsciiTitle";
+import AsciiTitle, { TITLE_ART, SUBTITLE_ART } from "@/components/AsciiTitle";
 
 type Stage = "idle" | "preview" | "captured";
 
@@ -174,16 +174,8 @@ export default function AvatarGenerator() {
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12 gap-8">
       {/* Header */}
       <div className="text-center space-y-1">
-        <AsciiTitle
-          text="Get A New Avatar"
-          font="Small"
-          className="text-[#2945D1] text-[11px] leading-tight"
-        />
-        <AsciiTitle
-          text="in ASCII art"
-          font="Mini"
-          className="text-slate-400 text-[9px] leading-tight"
-        />
+        <AsciiTitle art={TITLE_ART} className="text-[#2945D1] text-[11px] leading-tight" />
+        <AsciiTitle art={SUBTITLE_ART} className="text-slate-400 text-[9px] leading-tight" />
       </div>
 
       {/* Error */}

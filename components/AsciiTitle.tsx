@@ -1,29 +1,20 @@
-"use client";
+// Pre-rendered figlet ASCII art (Small + Mini fonts)
+// Generated server-side to avoid browser font-loading issues.
 
-import { useEffect, useState } from "react";
-import figlet from "figlet";
+export const TITLE_ART = `   ___     _       _     _  _                _           _
+  / __|___| |_    /_\\   | \\| |_____ __ __   /_\\__ ____ _| |_ __ _ _ _
+ | (_ / -_)  _|  / _ \\  | .\` / -_) V  V /  / _ \\ V / _\` |  _/ _\` | '_|
+  \\___\\___|\__| /_/ \\_\\ |_|\\_\\___|\\_/\\_/  /_/ \\_\\_/\\__,_|\\__\\__,_|_|  `;
+
+export const SUBTITLE_ART = `  o ._     /\\  (_  /   |   |     _. ._ _|_
+  | | |   /--\\ __) \\_ _|_ _|_   (_| |   |_ `;
 
 interface AsciiTitleProps {
-  text: string;
-  font?: figlet.Fonts;
+  art: string;
   className?: string;
 }
 
-export default function AsciiTitle({
-  text,
-  font = "Small",
-  className = "",
-}: AsciiTitleProps) {
-  const [art, setArt] = useState<string>("");
-
-  useEffect(() => {
-    figlet.text(text, { font }, (err, result) => {
-      if (!err && result) setArt(result);
-    });
-  }, [text, font]);
-
-  if (!art) return null;
-
+export default function AsciiTitle({ art, className = "" }: AsciiTitleProps) {
   return (
     <pre
       className={className}
